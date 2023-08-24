@@ -1,0 +1,131 @@
+/*
+    ESTOS ESTILOS SON PARA TENER UNA MEJOR PRESENTACION EN 
+    EL INICIO DEL BODY PARA EL LOGIN
+*/
+
+.body-login {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: linear-gradient(0deg, #1b1e26 6%,
+    #303440 95%);
+    color: #fff;
+    overflow-y: hidden;
+}
+
+.login {
+    width: 330px;
+    height: 270px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #15171d;
+    position: relative;
+}
+
+.login::before,
+.login__circuit-mask {
+    content: '';
+    width: 682px;
+    height: 514px;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: block;
+}
+
+
+.login::before {
+    background: url(../img/bg-circuito.svg);
+}
+
+.login__circuit-mask {
+    -webkit-mask: url(../img/bg-circuito.svg);
+    mask: url(../img/bg-circuito.svg);
+    display: grid;
+    place-items: center;
+}
+
+.login__circuit-mask::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #00f0ff;
+    border-radius: 50%;
+    animation: onda 5s infinite;    
+}
+
+@keyframes onda {
+    0% {
+        transform: scale(1);
+    }    
+
+    100% {
+        transform: scale(7);
+    }    
+}
+
+.login__heading {
+    text-align: center;
+    font-size: 1.6em;
+}
+
+/* Estilos generales para el formulario */
+.datos {
+    width: 290px;
+    border-radius: 5px;
+}
+
+/* Estilos para los campos del formulario */
+.datos label {
+    display: block;
+}
+
+.datos input[type="email"],
+.datos input[type="password"] {
+    width: 100%;
+    height: 35px;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    background: #2a2e39;
+    color: #fff;
+    border: nonde;
+}
+
+.cont__btn-login {
+    display: flex; /* Utilizamos flexbox para alinear el contenido */
+    justify-content: flex-end; /* Alineamos el botón hacia la derecha */
+}
+
+/* Estilos para el botón de enviar */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 3s;
+}
+
+.login input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.alert-modal {
+    width: 360px;
+    position: absolute;
+    bottom: 100px;
+}
+
+.alert-modal p {
+    text-align: center;
+}
+
+.alert-modal p b{
+    color: #00BCD4;
+}

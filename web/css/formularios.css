@@ -1,0 +1,91 @@
+/* Estilos para el contenedor del formulario */
+.cont-form-alumnos {
+    display: none;
+    width: 1100px;
+    margin: 40px 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+}
+
+/* Estilos para los elementos de entrada */
+.cont-input {
+    display: inline-block;
+    width: 300px;
+    margin-bottom: 15px;
+    margin-right: 40px;
+}
+
+.cont-input label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cont-input input[type="text"],
+.cont-input input[type="date"],
+.cont-input input[type="email"],
+.cont-input select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón */
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.boton:hover {
+    background-color: #0056b3;
+}
+
+.cont-calificaciones {
+    position: relative;
+}
+#formContainer {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    width: 30%;
+    background: #c2c2c2;
+    margin: 0px auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Estilos para el botón toggle */
+.toggle-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.btnActualizarM {
+    background-color: #FFC107;
+    color: #fff; 
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    
+}
