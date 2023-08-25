@@ -17,22 +17,9 @@ public class SvLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
-        String username = request.getParameter("correo");
-        String password = request.getParameter("contrasena");
-
-        // Verificar las credenciales (esto es solo un ejemplo, no es seguro)
-        if ("usuario" .equals(username) && "contraseña" .equals(password)) {
-            // Crear una sesión o recuperarla si ya existe
-            HttpSession session = request.getSession(true);
-            session.setAttribute("correo", username);
-
-            // Redirigir al área protegida
-            response.sendRedirect("views/index.jsp");
-        }
         
-        //url_file = "views/login.jsp";
-        //request.getRequestDispatcher(url_file).forward(request, response);
+        url_file = "views/login.jsp";
+        request.getRequestDispatcher(url_file).forward(request, response);
     }
 
     @Override

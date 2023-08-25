@@ -23,13 +23,7 @@ public class SvMenu extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        HttpSession session = request.getSession(false);
-    
-    // Verificar si existe una sesión y si el usuario está autenticado
-        if (session != null && session.getAttribute("correo") != null) {
-            String username = (String) session.getAttribute("correo");
-        }
+                    
         if(request.getParameter("btnAlumnos")!=null){
             url_files = "views/alumnos.jsp";                 
         } else if (request.getParameter("btnMaterias")!=null){
