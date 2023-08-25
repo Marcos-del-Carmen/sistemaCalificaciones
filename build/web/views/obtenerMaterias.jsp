@@ -35,9 +35,9 @@
 <%
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        String jdbcUrl = "jdbc:mysql://localhost:3306/DBfinal";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/dwi_final_marcos_francisco?serverTimezone=UTC";
         String usuario = "root";
-        String contraseña = "Nejua1998*";
+        String contraseña = "12345";
         Connection conn = DriverManager.getConnection(jdbcUrl, usuario, contraseña);
 
         String sql = "SELECT DISTINCT Cuatrimestre FROM materias";

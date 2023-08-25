@@ -1,6 +1,6 @@
-CREATE DATABASE db_calificaciones;
+CREATE DATABASE dwi_final_marcos_francisco;
 
-CREATE TABLE db_calificaciones.alumnos(
+CREATE TABLE dwi_final_marcos_francisco.alumnos(
 	Matricula 	VARCHAR(11) NOT NULL, 
     Nombre 			VARCHAR(45) NOT NULL,
     Paterno 		VARCHAR(45) NOT NULL,
@@ -13,21 +13,21 @@ CREATE TABLE db_calificaciones.alumnos(
 	PRIMARY KEY(Matricula)
 )ENGINE=InnoDB;
 
-CREATE TABLE db_calificaciones.materias(
+CREATE TABLE dwi_final_marcos_francisco.materias(
 	ClaveMateria 	VARCHAR(6) NOT NULL, 
     Nombre 			VARCHAR(45) NOT NULL,
     Cuatrimestre	VARCHAR(45) NOT NULL,
 	PRIMARY KEY(ClaveMateria)
 )ENGINE=InnoDB;
 
-CREATE TABLE db_calificaciones.accesos(
+CREATE TABLE dwi_final_marcos_francisco.accesos(
 	ClaveAccesos 	INT AUTO_INCREMENT,
     Correo 			VARCHAR(255) NOT NULL,
     Contrasena 		VARCHAR(255) NOT NULL,
     PRIMARY KEY(ClaveAccesos)
 )ENGINE=InnoDB;
 
-CREATE TABLE db_calificaciones.calificaciones (
+CREATE TABLE dwi_final_marcos_francisco.calificaciones (
     MatriculaAlumno VARCHAR(11) NOT NULL,
     ClaveMateria    VARCHAR(6) NOT NULL,
     Parcial1        FLOAT, 
@@ -38,7 +38,7 @@ CREATE TABLE db_calificaciones.calificaciones (
     CONSTRAINT fk_calificaciones_materias  FOREIGN KEY (ClaveMateria)     	REFERENCES materias (ClaveMateria)  ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE=InnoDB;
 
-INSERT INTO db_calificaciones.alumnos 
+INSERT INTO dwi_final_marcos_francisco.alumnos 
 (Matricula, 	Nombre, 				Paterno, 		Materno, 		Sexo, 	FechaNac, 		Telefono, 		Direccion, 			Correo)
 VALUES
 ('57221900129', 'Alexandra Denisse', 	'Diáz', 		'Bautista',  	'F',    '2001-04-06',	'7561453422' ,	'San Juan',    		'diazdenisse@gmail.com'),
@@ -48,7 +48,7 @@ VALUES
 ('57221900133', 'Marcos',  				'Sánchez', 		'Carmen',  		'M',    '2001-09-10',	'7561146892' ,	'18 sur San Jose',  'marcosdelcarmen@gmail.com');
 
 -- Registros para la tabla "materias"
-INSERT INTO db_calificaciones.materias (ClaveMateria, Nombre, Cuatrimestre)
+INSERT INTO dwi_final_marcos_francisco.materias (ClaveMateria, Nombre, Cuatrimestre)
 VALUES
 ('DWP023', 'Desarrollo Web Profesional', '8vo'),
 ('ABD023', 'Administración de Bases de Datos', '8vo'),
@@ -56,14 +56,14 @@ VALUES
 ('DDI023', 'Desarrollo para Dispositivos Inteligentes', '9no');
 
 -- Registros para la tabla "accesos"
-INSERT INTO db_calificaciones.accesos (Correo, Contrasena)
+INSERT INTO dwi_final_marcos_francisco.accesos (Correo, Contrasena)
 VALUES
-('marcosdelcarmen768@gmail.com', 	'HolaMundo1009*'),
-('hanniamartinez1001@gmail.com', 	'HolaMundo0722*'),
-('userTest@gmail.com', 				'12345');
+('marcosdelcarmen768@gmail.com', 	'1009'),
+('hanniamartinez1001@gmail.com', 	'0722'),
+('root@gmail.com', 				    '12345');
 
 -- Registros para la tabla "calificaciones"
-INSERT INTO db_calificaciones.calificaciones 
+INSERT INTO dwi_final_marcos_francisco.calificaciones 
 (MatriculaAlumno,  ClaveMateria, Parcial1, Parcial2, Parcial3, Extraordinario)
 VALUES
 ('57221900133', 'DWP023', 8.5, 8.9, 8.8, NULL),

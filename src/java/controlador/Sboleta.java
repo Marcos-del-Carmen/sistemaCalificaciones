@@ -33,7 +33,7 @@ public class Sboleta extends HttpServlet {
 
         try {
             // Configura la conexión a tu base de datos (debes ajustar esto según tu configuración)
-            String jdbcUrl = "jdbc:mysql://localhost:3306/db_calificaciones?serverTimezone=UTC";
+            String jdbcUrl = "jdbc:mysql://localhost:3306/dwi_final_marcos_francisco?serverTimezone=UTC";
             String dbUser = "root";
             String dbPassword = "12345";
 

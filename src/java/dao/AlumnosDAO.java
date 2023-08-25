@@ -1,6 +1,5 @@
 package dao;
 
-import static conexion.Conexion.*;
 import beans.Alumnos;
 import conexion.Conexion;
 import java.util.*;

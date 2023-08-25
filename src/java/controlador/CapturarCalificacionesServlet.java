@@ -15,7 +15,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/capturarCalificaciones")
-public class CapturarCalificacionesServlet extends HttpServlet {    
+public class CapturarCalificacionesServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

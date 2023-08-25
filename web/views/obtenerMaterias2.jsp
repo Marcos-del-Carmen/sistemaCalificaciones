@@ -20,7 +20,7 @@
 <%
     try {
         Class.forName("com.mysql.jdbc.Driver");
-        String jdbcUrl = "jdbc:mysql://localhost:3306/db_calificaciones?serverTimezone=UTC";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/dwi_final_marcos_francisco?serverTimezone=UTC";
         String usuario = "root";
         String contraseña = "12345";
         
