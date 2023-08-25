@@ -1,5 +1,6 @@
 package controlador;
 
+import conexion.Conexion;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -33,20 +34,21 @@ public class Sboleta extends HttpServlet {
 
         try {
             // Configura la conexión a tu base de datos (debes ajustar esto según tu configuración)
-            String jdbcUrl = "jdbc:mysql://localhost:3306/dwi_final_marcos_francisco?serverTimezone=UTC";
-            String dbUser = "root";
-            String dbPassword = "12345";
+//            String jdbcUrl = "jdbc:mysql://localhost:3306/dwi_final_marcos_francisco?serverTimezone=UTC";
+//            String dbUser = "root";
+//            String dbPassword = "12345";
+//
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
-
+            conn = Conexion.getConexion();
             String sql = "SELECT CONCAT(alumnos.Nombre, ' ', alumnos.Paterno, ' ', alumnos.Materno) AS NombreCompleto, "
-                    + "materias.Nombre AS NombreMateria, "
-                    + "calificaciones.Parcial1, calificaciones.Parcial2, calificaciones.Parcial3, calificaciones.Extraordinario "
-                    + "FROM calificaciones "
-                    + "INNER JOIN alumnos ON calificaciones.MatriculaAlumno = alumnos.Matricula "
-                    + "INNER JOIN materias ON calificaciones.ClaveMateria = materias.ClaveMateria "
-                    + "WHERE calificaciones.MatriculaAlumno = ? AND materias.Cuatrimestre = ?";
+                            + "materias.Nombre AS NombreMateria, "
+                            + "calificaciones.Parcial1, calificaciones.Parcial2, calificaciones.Parcial3, calificaciones.Extraordinario "
+                            + "FROM calificaciones "
+                            + "INNER JOIN alumnos ON calificaciones.MatriculaAlumno = alumnos.Matricula "
+                            + "INNER JOIN materias ON calificaciones.ClaveMateria = materias.ClaveMateria "
+                            + "WHERE calificaciones.MatriculaAlumno = ? AND materias.Cuatrimestre = ?";
 
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, matricula);
@@ -152,7 +154,7 @@ public class Sboleta extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
 
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             // Maneja las excepciones adecuadamente
 
         } finally {

@@ -1,5 +1,6 @@
 package controlador;
 
+import conexion.Conexion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,21 +32,7 @@ public class Smaterias extends HttpServlet {
         ResultSet rs = null;
 
         try {
-            // Configura la conexión a tu base de datos (debes ajustar esto según tu configuración)
-            String jdbcUrl = "jdbc:mysql://localhost:3306/dwi_final_marcos_francisco?serverTimezone=UTC";
-            String dbUser = "root";
-            String dbPassword = "12345";
-            
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
-
-//            String sql = "SELECT CONCAT(alumnos.Nombre, ' ', alumnos.Paterno, ' ', alumnos.Materno) AS NombreCompleto, "
-//                    + "materias.Nombre AS NombreMateria, "
-//                    + "calificaciones.Parcial1, calificaciones.Parcial2, calificaciones.Parcial3, calificaciones.Extraordinario "
-//                    + "FROM calificaciones "
-//                    + "INNER JOIN alumnos ON calificaciones.MatriculaAlumno = alumnos.Matricula "
-//                    + "INNER JOIN materias ON calificaciones.ClaveMateria = materias.ClaveMateria "
-//                    + "WHERE calificaciones.MatriculaAlumno = ? AND materias.Cuatrimestre = ?";
+            conn = Conexion.getConexion();
             String sql = "SELECT ClaveMateria, Nombre, Cuatrimestre FROM materias WHERE Cuatrimestre = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, cuatrimestre);
@@ -116,7 +103,7 @@ public class Smaterias extends HttpServlet {
             out.println("</table>");
             out.println("</body>");
             out.println("</html>");
-        } catch (IOException | ClassNotFoundException | SQLException e) {
+        } catch (IOException | SQLException e) {
             // Manejo de excepciones
 
         } finally {

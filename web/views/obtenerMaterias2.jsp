@@ -19,13 +19,7 @@
 
 <%
     try {
-        Class.forName("com.mysql.jdbc.Driver");
-        String jdbcUrl = "jdbc:mysql://localhost:3306/dwi_final_marcos_francisco?serverTimezone=UTC";
-        String usuario = "root";
-        String contraseña = "12345";
-        
-        Connection conn = DriverManager.getConnection(jdbcUrl, usuario, contraseña);
-
+        conn = Conexion.getConexion();
         String sql = "SELECT ClaveMateria, Nombre, Cuatrimestre  FROM materias";
         PreparedStatement stmt = conn.prepareStatement(sql);
         ResultSet rsMaterias = stmt.executeQuery();
